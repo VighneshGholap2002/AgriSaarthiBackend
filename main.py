@@ -47,6 +47,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "✅ AgriSaarthi backend is up and running!"}
+
 @app.post("/diagnose")
 async def diagnose_crop(
     image: UploadFile = File(...),
